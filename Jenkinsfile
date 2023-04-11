@@ -2,8 +2,8 @@ pipeline{
     agent any
 
     tools {
-         maven 'maven'
-         jdk 'java'
+         maven 'mvn'
+         jdk 'jdk'
     }
 
     stages{
@@ -16,6 +16,11 @@ pipeline{
             steps{
                sh 'mvn package'
             }
+        }
+    }
+    post {
+        always {
+            cleanWs()
         }
     }
 }
